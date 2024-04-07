@@ -1,4 +1,4 @@
-package UebungHotel;
+package UebungHotel.KeyRack;
 
 public class Key {
     private int roomNumber;
@@ -26,5 +26,12 @@ public class Key {
 
     public void setWithGuest(boolean withGuest) {
         this.withGuest = withGuest;
+    }
+
+    @Override
+    public String toString() {
+        return "Key" +
+                "roomNumber=" + roomNumber +
+                ", withGuest=" + withGuest;
     }
 }

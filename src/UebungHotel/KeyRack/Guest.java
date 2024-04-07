@@ -1,14 +1,17 @@
-package UebungHotel;
+package UebungHotel.KeyRack;
+
+import Key;
 
 public class Guest {
     private  String name;
     private Key key;
     private int roomNumber;
 
-    public Guest(String name, Key key, int roomNumber) {
+    public Guest(String name, int roomNumber) {
         this.name = name;
         this.key = key;
-        this.roomNumber = roomNumber;
+        //no roomnumber 0
+        this.roomNumber = roomNumber-1;
     }
 
     public Guest(String name) {
@@ -16,7 +19,7 @@ public class Guest {
         this.key = key;
         this.roomNumber = roomNumber;
     }
-    public Guest(Key key) {
+    public Guest() {
         this.name = name;
         this.key = key;
         this.roomNumber = roomNumber;
