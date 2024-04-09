@@ -4,10 +4,7 @@ import Vererbung.Beispiele.RabbitHole.ChristmasRabbit;
 import Vererbung.Beispiele.RabbitHole.EasterRabbit;
 import Vererbung.Beispiele.RabbitHole.Rabbit;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AppHashMaps {
     public static void main(String[] args) {
@@ -73,6 +70,14 @@ public class AppHashMaps {
         graz.add("Uhrturm");
         graz.add("Kunsthaus");
         graz.add("Doppelwendeltreppe");
+
+        //alternativer WEg ueber collection
+        Iterator<String> iter = graz.iterator();
+        System.out.println("---- ITERATOR-----");
+        while (iter.hasNext()){
+            String str = iter.next();
+            System.out.println(str);
+        }
 
         List<String> wien = new ArrayList<>();
         wien.add("Riesenrad");
