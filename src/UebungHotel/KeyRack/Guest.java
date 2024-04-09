@@ -1,7 +1,5 @@
 package UebungHotel.KeyRack;
 
-import Key;
-
 public class Guest {
     private  String name;
     private Key key;
