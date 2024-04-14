@@ -1,6 +1,6 @@
 package Vererbung.Beispiele.Animals;
 
-public class Lion extends Animals{
+public class Lion extends Animal {
     public Lion(String color, int countEyes) {
         super(color, countEyes);
     }
