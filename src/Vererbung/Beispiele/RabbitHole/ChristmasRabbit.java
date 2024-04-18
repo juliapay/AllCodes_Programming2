@@ -1,8 +1,8 @@
 package Vererbung.Beispiele.RabbitHole;
 
 public class ChristmasRabbit extends Rabbit{
-    public ChristmasRabbit(String name) {
-        super(name);
+    public ChristmasRabbit(String name, int age, int nrCarrots) {
+        super(name, age, nrCarrots);
     }
 
     public  void bringsPresents(){

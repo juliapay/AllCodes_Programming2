@@ -14,10 +14,10 @@ public class AppHashMaps {
 
         HashMap<Integer, Rabbit> register = new HashMap();
 
-        Rabbit r1 = new Rabbit("Hasi");
-        Rabbit r2 = new Rabbit("Stupsi");
-        Rabbit r3 = new EasterRabbit("Mr.Easter");
-        Rabbit r4 = new ChristmasRabbit("Snowi");
+        Rabbit r1 = new Rabbit("Hasi",2,34);
+        Rabbit r2 = new Rabbit("Stupsi",3,13);
+        Rabbit r3 = new EasterRabbit("Mr.Easter",5,36);
+        Rabbit r4 = new ChristmasRabbit("Snowi",3,78);
 
         register.put(1001, r1);
         register.put(1002, r2);
@@ -71,7 +71,7 @@ public class AppHashMaps {
         graz.add("Kunsthaus");
         graz.add("Doppelwendeltreppe");
 
-        //alternativer WEg ueber collection
+        //alternativer Weg ueber collection
         Iterator<String> iter = graz.iterator();
         System.out.println("---- ITERATOR-----");
         while (iter.hasNext()){
