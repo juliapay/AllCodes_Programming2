@@ -33,6 +33,18 @@ public class Comparator_CheatSheet implements Comparator<Comparable_CheatSheet> 
             return o1.name.compareTo(o2.name);
         }
     }
+      public int compare(Rabbit o1, Rabbit o2) {
+        int cmp= Integer.compare(o1.getAge(),o2.getAge());
+        if (cmp!=0) {
+            //ALTER IST SCHON UNTERSCHIEDLICH
+            //MÜSSEN NAMEN NICHT MEHR BERÜCKSICHTIGEN
+            return cmp;
+        }
+        //FALLS ALTER GLEICH IST
+        return Integer.compare(o1.getNrCarrots(),o2.getNrCarrots()) ;
+        //AUFSTEIGEND SORTIEREN
+        //FALLS ABSTEIGEND SORTIERT ZB CMP*-1
+    }
      */
 
 }
