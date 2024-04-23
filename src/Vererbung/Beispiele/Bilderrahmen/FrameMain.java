@@ -1,4 +1,4 @@
-package Klassen.Bilderrahmen;
+package Vererbung.Beispiele.Bilderrahmen;
 
 import java.util.ArrayList;
 import java.util.List;

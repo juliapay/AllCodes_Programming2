@@ -1,4 +1,4 @@
-package Klassen.Bilderrahmen;
+package Vererbung.Beispiele.Bilderrahmen;
 
 public class BackBoard {
    private Matrial material;

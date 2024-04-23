@@ -24,15 +24,17 @@ public class Comparator_CheatSheet implements Comparator<Comparable_CheatSheet> 
     /* ------------ANOTHER SAMPLE OF THE COMPARE METHOD FOR COMPARATOR------------------------------------
         @Override
         public int compare(Rabbit o1, Rabbit o2) {
-        return o1.name.compareTo(o2.name);
 
         // if first criteria is the same and you have to sort further
 
         if (o1.name.compareTo(o2.name) == 0) {
+                return o1.name.compareTo(o2.name);
         } else {
             return o1.name.compareTo(o2.name);
         }
     }
+
+
       public int compare(Rabbit o1, Rabbit o2) {
         int cmp= Integer.compare(o1.getAge(),o2.getAge());
         if (cmp!=0) {
@@ -45,6 +47,18 @@ public class Comparator_CheatSheet implements Comparator<Comparable_CheatSheet> 
         //AUFSTEIGEND SORTIEREN
         //FALLS ABSTEIGEND SORTIERT ZB CMP*-1
     }
+        -------------------in der managerklasse:
+
+    public void sortAlphabetical(){
+        AlphabeticalComparator alphabeticalComparator= new AlphabeticalComparator();
+        Collections.sort(kinder, alphabeticalComparator);
+        System.out.println("Getränke sortiert nach Anzahl der Zutaten");
+        for(Kind g:kinder){
+            System.out.println(g);
+        }/
+
+    }
+
      */
 
 }

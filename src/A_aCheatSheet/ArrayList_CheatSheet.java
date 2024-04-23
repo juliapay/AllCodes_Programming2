@@ -1,6 +1,9 @@
 package A_aCheatSheet;
 
+import AbstrakteKlassenInterface.musikanten.Musikant;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ArrayList_CheatSheet {
 
@@ -14,7 +17,9 @@ public class ArrayList_CheatSheet {
 
     //ADDING OBJECTS TO ARRAYLIST------------------------------------------
     public void addObject(MyObject item) {
-        newArrayList.add(item);
+        if (!newArrayList.contains(item)){
+            newArrayList.add(item);
+        }
     }
 
     //REMOVING OBJECTS FROM AN ARRAYLIST-------------------------------------
@@ -36,6 +41,24 @@ public class ArrayList_CheatSheet {
             }
         }
     }
+    //--------ITERATOR ARRAYLIST
+    public int SummederIteration() {
+    int sum=0;
+    // so der code ohne ITERATOR
+
+    /*  for (Musikant m:quartett) {
+          sum+=m.verscheucheRaeuber();
+      }
+      return sum;*/
+
+    Iterator<MyObject> iterator = newArrayList.iterator();
+
+        while (iterator.hasNext()) {
+        MyObject m = iterator.next();
+        sum += m.valueYouAreSearchingFor(); //you have to get this value somewhere
+    }
+        return sum;
+}
 
     //PRINTING THE CONTENTS OF AN ARRAYLIST--------------------------------
         public void printList(ArrayList<MyObject> newArrayList) {

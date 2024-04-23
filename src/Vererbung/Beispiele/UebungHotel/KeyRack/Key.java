@@ -1,4 +1,4 @@
-package UebungHotel.KeyRack;
+package Vererbung.Beispiele.UebungHotel.KeyRack;
 
 public class Key {
     private int roomNumber;
