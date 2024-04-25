@@ -1,9 +1,4 @@
-package Sort;
-
-import Vererbung.Beispiele.Dogs.Dog;
-import Vererbung.Beispiele.Dogs.DogAgeComparator;
-import Vererbung.Beispiele.Dogs.DogAgeNameComparator;
-import Vererbung.Beispiele.Dogs.DogNameComparator;
+package AbstrakteKlassenInterface.DogsComperator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,7 +44,7 @@ public class ArraySort {
 
 
         //IMPORTIEREN HÄNDISCH
-        //import at.Vererbung.Beispiele.Dogs Dog f= null;
+        //import at.AbstrakteKlassenInterface.Dogs Dog f= null;
 
         //----COLLECTIONS------
         List<Dog> dogsList = new ArrayList<>();

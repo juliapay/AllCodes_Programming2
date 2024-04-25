@@ -1,4 +1,4 @@
-package Vererbung.Beispiele.Dogs;
+package AbstrakteKlassenInterface.DogsComperator;
 
 public class Pudel extends Dog {
     private String lieblingsEssen;

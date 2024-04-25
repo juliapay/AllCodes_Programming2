@@ -1,4 +1,4 @@
-package Vererbung.Beispiele.Dogs;
+package AbstrakteKlassenInterface.DogsComperator;
 
 public class DogsApp {
     public static void main(String[] args) {

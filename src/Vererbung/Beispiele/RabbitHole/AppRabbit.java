@@ -1,11 +1,8 @@
 package Vererbung.Beispiele.RabbitHole;
 
-import Vererbung.Beispiele.Dogs.DogAgeNameComparator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 public class AppRabbit {
     public static void main(String[] args) {

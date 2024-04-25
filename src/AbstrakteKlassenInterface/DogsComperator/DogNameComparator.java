@@ -1,4 +1,4 @@
-package Vererbung.Beispiele.Dogs;
+package AbstrakteKlassenInterface.DogsComperator;
 
 import java.util.Comparator;
 

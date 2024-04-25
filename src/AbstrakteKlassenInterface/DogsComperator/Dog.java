@@ -1,4 +1,4 @@
-package Vererbung.Beispiele.Dogs;
+package AbstrakteKlassenInterface.DogsComperator;
 
 public class Dog implements Comparable<Dog> {
     //MIT COMPARABLE INTERFACE
