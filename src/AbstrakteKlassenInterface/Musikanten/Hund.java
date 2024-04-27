@@ -1,4 +1,4 @@
-package AbstrakteKlassenInterface.musikanten;
+package AbstrakteKlassenInterface.Musikanten;
 
 public class Hund extends Musikant{
 	protected double bellLautstaerke;

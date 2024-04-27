@@ -1,4 +1,4 @@
-package AbstrakteKlassenInterface.musikanten;
+package AbstrakteKlassenInterface.Musikanten;
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ public class Quartett {
     public ArrayList<Musikant> getMusikantenInLautstaerkeBereich(double von, double bis) {
         ArrayList<Musikant> musikants = new ArrayList<>();
         for (Musikant m : quartett) {
-            if (m.spieleMusik() > von || m.spieleMusik() < bis) {
+            if (m.spieleMusik() > von && m.spieleMusik() < bis) {
                 musikants.add(m);
             }
         }
@@ -63,41 +63,13 @@ public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl() {
             musikantenBeine.put(beine,1);
         }
     }
+    //       Set<Integer> keyset = beineAnzahl.keySet();
+    //       for (Integer s : keyset) {
+    //           System.out.println(beineAnzahl.get(s) + " Tiere haben " + s + " Beine");
+    //      }
     return musikantenBeine;
 }
 
-//    public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl() {
-//        HashMap<Integer, Integer> musikantenBeine = new HashMap<>();
-//        Integer sum1 = 0;
-//        Integer sum2 = 0;
-//        Integer sum3 = 0;
-//        Integer sum4 = 0;
-//
-//        for (Musikant m : quartett) {
-//
-//            if (m.anzahlbeine == 1) {
-//                Integer key = m.anzahlbeine;
-//                sum1++;
-//                musikantenBeine.put(key, sum1);
-//            }
-//            if (m.anzahlbeine == 2) {
-//                Integer key = m.anzahlbeine;
-//                sum2++;
-//                musikantenBeine.put(key, sum2);
-//            }
-//            if (m.anzahlbeine == 3) {
-//                Integer key = m.anzahlbeine;
-//                sum3++;
-//                musikantenBeine.put(key, sum3);
-//            }
-//            if (m.anzahlbeine == 4) {
-//                Integer key = m.anzahlbeine;
-//                sum4++;
-//                musikantenBeine.put(key, sum4);
-//            }
-//        }
-//        return musikantenBeine;
-//    }
 
     public void printLautStaerkeAbsteigend() {
         LautstaerkeComparator lautstaerkeComparator = new LautstaerkeComparator();

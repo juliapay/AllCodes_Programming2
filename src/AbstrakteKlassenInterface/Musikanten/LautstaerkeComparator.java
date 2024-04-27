@@ -1,4 +1,4 @@
-package AbstrakteKlassenInterface.musikanten;
+package AbstrakteKlassenInterface.Musikanten;
 
 import java.util.Comparator;
 

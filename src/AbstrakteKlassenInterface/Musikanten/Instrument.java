@@ -1,4 +1,4 @@
-package AbstrakteKlassenInterface.musikanten;
+package AbstrakteKlassenInterface.Musikanten;
 
 public class Instrument {
 	private String name;

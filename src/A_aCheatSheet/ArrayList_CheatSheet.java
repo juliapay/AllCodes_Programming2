@@ -1,7 +1,5 @@
 package A_aCheatSheet;
 
-import AbstrakteKlassenInterface.musikanten.Musikant;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 

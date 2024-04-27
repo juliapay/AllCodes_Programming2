@@ -1,15 +1,12 @@
 package A_aCheatSheet;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
-public class HashMap_CheatSheet{
+public class HashMap_CheatSheet {
 
     // CREATION: Declaration in a class (didn't initialize it but it works)---------------------------
     HashMap<Integer, String> newHashMap; // <String, Integer>, <String, String>, etc
-
+List<MyObject>arrayList=new ArrayList<>();
     //DUMMY CONSTRUCTOR
     public HashMap_CheatSheet() {
 
@@ -50,8 +47,8 @@ public class HashMap_CheatSheet{
     }
 
     // FINDING THE ENTRY IN A HASHMAP WITH THE HIGHEST KEY-------
-    public Map.Entry<Integer, String>  findEntryWithHighestKey(HashMap<Integer, String> newHashMap) {
-        Map.Entry<Integer, String>  entryWithHighestKey = null;
+    public Map.Entry<Integer, String> findEntryWithHighestKey(HashMap<Integer, String> newHashMap) {
+        Map.Entry<Integer, String> entryWithHighestKey = null;
         Integer highestKey = null;
         Integer tempKey = null;
         for (Map.Entry<Integer, String> entry : newHashMap.entrySet()) {
@@ -141,36 +138,79 @@ public class HashMap_CheatSheet{
         return newHashmapCreated;
     }
 
-    //EXAMPLE: ADD ENTRY TO A HASHMAP //in this ex. "players" is a Hahmap
-    /*
-    public boolean addCard(Player p, Integer cardValue) {
-        boolean cardRaised = false;
-        Integer currentValue;
-
-        if (players.containsKey(p)) {
-            currentValue = players.get(p) + 1;
-            cardRaised = true;
-        } else {
-            cardRaised = false;
+    public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl(ArrayList<MyObject> arrayList) {
+        HashMap<Integer, Integer> beineAnzahl = new HashMap<>();
+        if (arrayList != null) {
+            for (MyObject m : arrayList) {
+                if (beineAnzahl.containsKey(m.valueYouAreSearchingFor())) {
+                    beineAnzahl.put(m.valueYouAreSearchingFor(), beineAnzahl.get(m.valueYouAreSearchingFor()) + 1);
+                } else {
+                    beineAnzahl.put(m.valueYouAreSearchingFor(), 1);
+                }
+            }
         }
-
-        return cardRaised;
+        Set<Integer> keyset = beineAnzahl.keySet();
+        for (Integer s : keyset) {
+            System.out.println(beineAnzahl.get(s) + " Tiere haben " + s + " Beine");
+        }
+        return beineAnzahl;
     }
 
-    //EXAMPLE2: ADD ENTRY TO A HASHMAP
-  public boolean addCard(Player p, Integer cardValue) { //in this ex. "players" is a Hahmap
-    boolean cardRaised = false;
+    public HashMap<String, Double> getAreaBySizeCategories() {
+        HashMap<String, Double> sizeByCategories = new HashMap<>();
 
-    for (Map.Entry<Player, Integer> entry : players.entrySet()) {
-        if (entry.getKey().equals(p)) {
-            Integer currentValue = entry.getValue() + 1;
-            entry.setValue(currentValue);
-            cardRaised = true;
-            break;
+        for (MyObject f : arrayList) {
+            if (f.valueYouAreSearchingFor() < 1000) {
+                Double currentArea = sizeByCategories.getOrDefault("Klein", 0.0);
+                sizeByCategories.put("Klein",currentArea+f.valueYouAreSearchingFor());
+            }
+            else  if (f.valueYouAreSearchingFor() >= 1000 && f.valueYouAreSearchingFor() < 4999) {
+                Double currentArea = sizeByCategories.getOrDefault("Mittel", 0.0);
+                sizeByCategories.put("Mittel",currentArea+f.valueYouAreSearchingFor());
+            }
+            else if (f.valueYouAreSearchingFor() > 5000) {
+                Double currentArea = sizeByCategories.getOrDefault("Groß", 0.0);
+                sizeByCategories.put("Groß",currentArea+f.valueYouAreSearchingFor());
+            }
         }
+
+        Set<String> keyset = sizeByCategories.keySet();
+        for (String s : keyset) {
+            System.out.println("Die Summe der Kategorie "+s + " beträgt " +sizeByCategories.get(s));
+        }
+
+        return sizeByCategories;
+    }
+    public HashMap<Integer, ArrayList<MyObject>> getGetraenkeaufgeteiltNachZutaten() {
+        HashMap<Integer, ArrayList<MyObject>> getraenkListe = new HashMap<>();
+        if (arrayList != null) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                MyObject g = arrayList.get(i);
+                if (getraenkListe.containsKey(g.valueYouAreSearchingFor())) {
+                    ArrayList<MyObject> gesamt = getraenkListe.get(g.valueYouAreSearchingFor());
+                    gesamt.add(g); // Add directly to the retrieved ArrayList
+                } else {
+                    ArrayList<MyObject> gesamt = new ArrayList<>();
+                    gesamt.add(g);
+                    getraenkListe.put(g.valueYouAreSearchingFor(), gesamt);
+                }
+            }
+        }
+        Set<Integer> keyset = getraenkListe.keySet();
+        for (Integer s : keyset) {
+            System.out.println(s + " Zutaten haben diese Getränke " + getraenkListe.get(s));
+        }
+
+        return getraenkListe;
     }
 
-    return cardRaised;
-}
-     */
+
+// HASHMAP AUSGABE KONSOLE
+
+    //       Set<Integer> keyset = beineAnzahl.keySet();
+    //       for (Integer s : keyset) {
+    //           System.out.println(beineAnzahl.get(s) + " Tiere haben " + s + " Beine");
+    //      }
+
+
 }
