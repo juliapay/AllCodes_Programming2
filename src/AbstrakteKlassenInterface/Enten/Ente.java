@@ -1,32 +1,20 @@
 package AbstrakteKlassenInterface.Enten;
 
-public abstract class Ente implements Comparable {
+public abstract class Ente implements Comparable<Ente>{
     protected String name;
-    protected int gewicht;
+    protected  int weight;
 
-    public Ente(String name, int gewicht) {
+    public Ente(String name, int weight) {
         this.name = name;
-        this.gewicht = gewicht;
+        this.weight = weight;
     }
-
-
-    public int compareTo(Ente e) {
-        if(this.gewicht < e.gewicht){
-            return -1;
-        }
-        if (this.gewicht > e.gewicht) {
-            return 1;
-        }
-        return 0;
-    }
-
-    public abstract int getfullWeight();
+    public abstract int getFullWeight();
     public abstract String makeNoise();
-    public String getName() {
-        return name;
-    }
 
-    public int getGewicht() {
-        return gewicht;
+    @Override
+    public int compareTo(Ente o) {
+        //hier die compare to methode
+        return Integer.compare(this.getFullWeight(),o.getFullWeight());
     }
 }
+

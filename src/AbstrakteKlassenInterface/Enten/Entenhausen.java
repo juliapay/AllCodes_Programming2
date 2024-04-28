@@ -2,54 +2,57 @@ package AbstrakteKlassenInterface.Enten;
 
 import AbstrakteKlassenInterface.Figures.Figure;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Entenhausen {
-    protected List<Ente> enten;
-
-    //CONSTRUCTOR
+    private List<Ente> enten;
+    //Constructor zur Initialisierung der Arrayliste;
     public Entenhausen() {
-        this.enten = new ArrayList<>();//INTIALISING FIGURES
+        this.enten = new ArrayList<>();
     }
 
-    //METHOD FOR ADDING FIGURE
-    public void addEnten(Ente e) {
-        if (!enten.contains(e)) {//CONDITION FOR EMPTY PLACE
-            enten.add(e);
+    public void addEnte(Ente e) {
+        //um Exceptions auszuschließen
+        if (enten != null) {
+            //damit nicht 2x befüllt wird
+            if (!enten.contains(e)) {
+                enten.add(e);
+            }
         }
     }
 
     public Map<Integer, List<Ente>> getGruppierteEnten() {
-        HashMap<Integer, List<Ente>> entenNachGewicht = new HashMap<>();
+        //deklarien-Initilsieren Hashmap
+        HashMap<Integer, List<Ente>> entenListe = new HashMap<>();
+        //deklarien-Initilsieren Listen für die hashmap
         List<Ente> tiny = new ArrayList<>();
         List<Ente> medium = new ArrayList<>();
-        List<Ente> big = new ArrayList<>();
-//        hier wird nur eine referenz auf die liste inder hashmap ertstellt
-//        deswegen kann das hashmap.put auch vor der befüllung passieren
-        entenNachGewicht.put(100,tiny);
-        entenNachGewicht.put(200,medium);
-        entenNachGewicht.put(200,big);
-
-
-        for (Ente f : enten) {
-            if (f.getfullWeight() < 100) {
-
-                entenNachGewicht.put(100, tiny);
-                tiny.add(f);
+        List<Ente> schwereKnochen = new ArrayList<>();
+        //initialisierung der Map mit dem gewicht als key und der leeren Liste als value
+        entenListe.put(100, tiny);
+        entenListe.put(200, medium);
+        entenListe.put(300, schwereKnochen);
+        //iteration durch die Arrayliste der enten
+        for (Ente e : enten) {
+            if (e.getFullWeight() <= 100) {
+                tiny.add(e);
+            } else if (e.getFullWeight() <= 200) {
+                medium.add(e);
             } else {
-                if (f.getfullWeight() <= 200) {
-                    entenNachGewicht.put(200, medium);
-                    medium.add(f);
-                } else if (f.getfullWeight() <= 300) {
-                    entenNachGewicht.put(300, big);
-                    big.add(f);
-                }
+                schwereKnochen.add(e);
             }
         }
-
-        return entenNachGewicht;
+        //Ausgabe Konsole: gibt dei Enten mit der toString-Methoode in der Konsole aus
+        Set<Integer> keyset = entenListe.keySet();
+        for(Integer s :keyset) {
+            System.out.println("In der Kategorie " + s + "gramm sind " + entenListe.get(s));
+        }
+        return entenListe;
+    }
+    public void sortEntenNachGewicht(){
+        Collections.sort(enten,Ente::compareTo);
+        for (Ente e:enten) {
+            System.out.println(e);
+        }
     }
 }

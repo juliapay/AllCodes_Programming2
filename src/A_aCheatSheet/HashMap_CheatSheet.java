@@ -1,5 +1,7 @@
 package A_aCheatSheet;
 
+import AbstrakteKlassenInterface.Enten.Ente;
+
 import java.util.*;
 
 public class HashMap_CheatSheet {
@@ -203,7 +205,39 @@ List<MyObject>arrayList=new ArrayList<>();
 
         return getraenkListe;
     }
+ /*
+        public Map<Integer, List<Ente>> getGruppierteEnten() {
 
+        HashMap<Integer, List<Ente>> entenNachGewicht = new HashMap<>();
+        List<Ente> tiny = new ArrayList<>();
+        List<Ente> medium = new ArrayList<>();
+        List<Ente> big = new ArrayList<>();
+//        hier wird nur eine referenz auf die liste inder hashmap ertstellt
+//        deswegen kann das hashmap.put auch vor der befüllung passieren
+        entenNachGewicht.put(100,tiny);
+        entenNachGewicht.put(200,medium);
+        entenNachGewicht.put(200,big);
+
+
+        for (Ente f : enten) {
+            if (f.getfullWeight() < 100) {
+
+                entenNachGewicht.put(100, tiny);
+                tiny.add(f);
+            } else {
+                if (f.getfullWeight() <= 200) {
+                    entenNachGewicht.put(200, medium);
+                    medium.add(f);
+                } else if (f.getfullWeight() <= 300) {
+                    entenNachGewicht.put(300, big);
+                    big.add(f);
+                }
+            }
+        }
+
+        return entenNachGewicht;
+    }
+*/
 
 // HASHMAP AUSGABE KONSOLE
 

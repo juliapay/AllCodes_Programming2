@@ -45,6 +45,7 @@ public class Comparable_CheatSheet implements Comparable<Comparable_CheatSheet> 
 
         //for int comparison use:
         //Integer.compare (2,4);
+
         //return Integer.compare(this.age, o.age)
         //for Strings comparison use:
         //String s = "Hansi"

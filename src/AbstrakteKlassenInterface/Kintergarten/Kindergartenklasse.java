@@ -1,7 +1,7 @@
 package AbstrakteKlassenInterface.Kintergarten;
 
 import A_aCheatSheet.Comparator_CheatSheet;
-import AbstrakteKlassenInterface.Getraenke.Getraenk;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
