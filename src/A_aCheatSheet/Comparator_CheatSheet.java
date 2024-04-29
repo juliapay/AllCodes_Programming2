@@ -12,12 +12,13 @@ public class Comparator_CheatSheet implements Comparator<Comparable_CheatSheet> 
     @Override
     public int compare(Comparable_CheatSheet o1, Comparable_CheatSheet o2) { //method name is compare!
         // Compare based on the int value
-        int keyComparison = o1.getoKey2().compareTo(o2.getoKey2()); // the class being compared must have compareTo method.
-        if (keyComparison != 0) {
-            return keyComparison;
+        int cmp= Integer.compare(o1.getoKey2(),o2.getoKey2());
+        if (cmp!=0) {
+            //die zu vergleichenden key sind schon unterschiedlich
+            //MÜSSEN nächsten Vergleich NICHT MEHR BERÜCKSICHTIGEN
+            return cmp;
         }
-
-        // If first values are the same, sort based on the 2nd value
+        // ween der erste Vergleich gleiche Werte ergibt
         return o1.getoValue2().compareTo(o2.getoValue2());
     }
 

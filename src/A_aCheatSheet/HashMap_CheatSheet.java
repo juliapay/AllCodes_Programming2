@@ -123,6 +123,30 @@ public class HashMap_CheatSheet {
     }
 
     // -----HASHMAP STRING DOUBLE  STRING GETVALUE   DOUBE SUMME ALLER VALUES
+/*
+    public HashMap<String,Double> getSalaryByDepartment(){
+        HashMap<String,Double> salaryByDepartment=new HashMap<>();
+        if(arrayList!=null){
+            for (Employee e:empList) {
+                if(salaryByDepartment.containsKey(e.department)){
+                    //variable zum speichern des momentanen Value-WErtes aus der Hashmap
+                    double currentSumOfSalary=salaryByDepartment.get(e.department);
+
+                    salaryByDepartment.put(e.department, currentSumOfSalary+(e.getFullsalary()));
+                    // else abfrage zum erstellung eines neun key-value-pairs falls der key noch nicht in der hashmap vorhanden ist
+                }else{
+                    salaryByDepartment.put(e.department, e.getFullsalary());
+                }
+            }
+        }
+        Set<String> keyset= salaryByDepartment.keySet();
+        for (String s:keyset) {
+            System.out.println("in der Abteilung: "+s+" beträgt die Summe aller Gehaelter: "+salaryByDepartment.get(s));
+        }
+        return salaryByDepartment;
+    }
+
+ */
     HashMap<String, Double> getSumPriceEventsByOrt(ArrayList<MyObject> arrayList) { //Get the sum cost of all items with the same name
         HashMap<String, Double> newHashmapCreated = new HashMap<>(); //The hashmap should contain "name" + totalSum
         String name;
@@ -171,12 +195,16 @@ public class HashMap_CheatSheet {
 //Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
         if (besucher!=null){
             for (NFCTicket t:besucher) {
-            //hier casting erforderlich!!! da sonst 0!!!
+           //hier casting erforderlich!!! da sonst 0!!!
             //variable fuer das elegantere aufsummieren
+
                 double sum=(double)(4-t.getCategory())/10;
+
 // erste abfrage ob die Hashmap den key inkludiert hat
                 if(donationsPerCategory.containsKey(t.getCategory())){
+                   //variable zum speichern des momentanen Value-Wertes aus der Hashmap
                     double currentDonation = donationsPerCategory.get(t.getCategory());
+
                     donationsPerCategory.put(t.getCategory(),currentDonation+(t.getProfit()*sum));
                // else abfrage zum erstellung eines neun key-value-pairs falls der key noch nicht in der hashmap vorhanden ist
                 }else {
@@ -184,6 +212,7 @@ public class HashMap_CheatSheet {
                 }
             }
         }
+
         Set<Integer> keyset= donationsPerCategory.keySet();
         for (Integer s:keyset) {
             System.out.println("durch die Kategorie "+s+" wurden "+donationsPerCategory.get(s)+" gespendet.");
