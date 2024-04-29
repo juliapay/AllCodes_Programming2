@@ -10,7 +10,8 @@ public class HashMap_CheatSheet {
 
     // CREATION: Declaration in a class (didn't initialize it but it works)---------------------------
     HashMap<Integer, String> newHashMap; // <String, Integer>, <String, String>, etc
-List<MyObject>arrayList=new ArrayList<>();
+    List<MyObject> arrayList = new ArrayList<>();
+
     //DUMMY CONSTRUCTOR
     public HashMap_CheatSheet() {
 
@@ -141,18 +142,22 @@ List<MyObject>arrayList=new ArrayList<>();
         }
         return newHashmapCreated;
     }
-// ---------HASHMAP INTEGER INTEGER -----VALUE IST DIE ANZAHL ALLER VALUES!-------
+
+    // ---------HASHMAP INTEGER INTEGER -----VALUE IST DIE ANZAHL ALLER VALUES!-------
     public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl(ArrayList<MyObject> arrayList) {
         HashMap<Integer, Integer> beineAnzahl = new HashMap<>();
-        if (arrayList != null) {
+        if (arrayList != null) {//Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
             for (MyObject m : arrayList) {
+                // erste abfrage ob die Hashmap den key inkludiert hat
                 if (beineAnzahl.containsKey(m.valueYouAreSearchingFor())) {
                     beineAnzahl.put(m.valueYouAreSearchingFor(), beineAnzahl.get(m.valueYouAreSearchingFor()) + 1);
+                    // else abfrage zum erstellung eines neun key-value-pairs falls der key noch nicht in der hashmap vorhanden ist
                 } else {
                     beineAnzahl.put(m.valueYouAreSearchingFor(), 1);
                 }
             }
         }
+        //erstellen eines keysets zur schoeneren ausgabe in der konsole
         Set<Integer> keyset = beineAnzahl.keySet();
         for (Integer s : keyset) {
             System.out.println(beineAnzahl.get(s) + " Tiere haben " + s + " Beine");
@@ -163,15 +168,17 @@ List<MyObject>arrayList=new ArrayList<>();
 
   /*  public  HashMap<Integer,Double> dontionKategory(){
         HashMap<Integer,Double> donationsPerCategory=new HashMap<>();
-
+//Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
         if (besucher!=null){
             for (NFCTicket t:besucher) {
             //hier casting erforderlich!!! da sonst 0!!!
+            //variable fuer das elegantere aufsummieren
                 double sum=(double)(4-t.getCategory())/10;
-
+// erste abfrage ob die Hashmap den key inkludiert hat
                 if(donationsPerCategory.containsKey(t.getCategory())){
                     double currentDonation = donationsPerCategory.get(t.getCategory());
                     donationsPerCategory.put(t.getCategory(),currentDonation+(t.getProfit()*sum));
+               // else abfrage zum erstellung eines neun key-value-pairs falls der key noch nicht in der hashmap vorhanden ist
                 }else {
                     donationsPerCategory.put(t.getCategory(),(t.getProfit()*sum));
                 }
@@ -191,26 +198,27 @@ List<MyObject>arrayList=new ArrayList<>();
 
     public HashMap<String, Double> getAreaBySizeCategories() {
         HashMap<String, Double> sizeByCategories = new HashMap<>();
-
-        for (MyObject f : arrayList) {
-            if (f.valueYouAreSearchingFor() < 1000) {
-                Double currentArea = sizeByCategories.getOrDefault("Klein", 0.0);
-                sizeByCategories.put("Klein",currentArea+f.valueYouAreSearchingFor());
-            }
-            else  if (f.valueYouAreSearchingFor() >= 1000 && f.valueYouAreSearchingFor() < 4999) {
-                Double currentArea = sizeByCategories.getOrDefault("Mittel", 0.0);
-                sizeByCategories.put("Mittel",currentArea+f.valueYouAreSearchingFor());
-            }
-            else if (f.valueYouAreSearchingFor() > 5000) {
-                Double currentArea = sizeByCategories.getOrDefault("Groß", 0.0);
-                sizeByCategories.put("Groß",currentArea+f.valueYouAreSearchingFor());
+        //Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
+        if (arrayList != null) {
+            for (MyObject f : arrayList) {
+                if (f.valueYouAreSearchingFor() < 1000) {
+                    Double currentArea = sizeByCategories.getOrDefault("Klein", 0.0);
+                    sizeByCategories.put("Klein", currentArea + f.valueYouAreSearchingFor());
+                } else if (f.valueYouAreSearchingFor() >= 1000 && f.valueYouAreSearchingFor() < 4999) {
+                    Double currentArea = sizeByCategories.getOrDefault("Mittel", 0.0);
+                    sizeByCategories.put("Mittel", currentArea + f.valueYouAreSearchingFor());
+                } else if (f.valueYouAreSearchingFor() > 5000) {
+                    Double currentArea = sizeByCategories.getOrDefault("Groß", 0.0);
+                    sizeByCategories.put("Groß", currentArea + f.valueYouAreSearchingFor());
+                }
             }
         }
 
         Set<String> keyset = sizeByCategories.keySet();
         for (String s : keyset) {
-            System.out.println("Die Summe der Kategorie "+s + " beträgt " +sizeByCategories.get(s));
+            System.out.println("Die Summe der Kategorie " + s + " beträgt " + sizeByCategories.get(s));
         }
+
 
         return sizeByCategories;
     }
@@ -218,19 +226,20 @@ List<MyObject>arrayList=new ArrayList<>();
     //----HASHMAP INTEGER ARRAYLIST ---
 
     public HashMap<Integer, ArrayList<MyObject>> getGetraenkeAufgeteiltNachZutaten() {
-        HashMap<Integer, ArrayList<MyObject>> getraenkeListesortiertNachAnzahlDerZutaten= new HashMap<>();
-        if(arrayList!=null){
-            for (MyObject g:arrayList) {
+        HashMap<Integer, ArrayList<MyObject>> getraenkeListesortiertNachAnzahlDerZutaten = new HashMap<>();
+        //Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
+        if (arrayList != null) {
+            for (MyObject g : arrayList) {
                 if (getraenkeListesortiertNachAnzahlDerZutaten.containsKey(g.valueYouAreSearchingFor())) {
                     //hier wird in die vorhandene liste gespeichert
-                    ArrayList<MyObject>gesamt=getraenkeListesortiertNachAnzahlDerZutaten.get(g.valueYouAreSearchingFor());
+                    ArrayList<MyObject> gesamt = getraenkeListesortiertNachAnzahlDerZutaten.get(g.valueYouAreSearchingFor());
                     gesamt.add(g);
-                }else{
+                } else {
                     //hier wird die Liste für den key deklariert und initialisiert
-                    ArrayList<MyObject>gesamt=new ArrayList<>();
+                    ArrayList<MyObject> gesamt = new ArrayList<>();
                     gesamt.add(g);
                     //und der Hashmap dem entsprechenden Key zugeordnet
-                    getraenkeListesortiertNachAnzahlDerZutaten.put(g.valueYouAreSearchingFor(),gesamt);
+                    getraenkeListesortiertNachAnzahlDerZutaten.put(g.valueYouAreSearchingFor(), gesamt);
                 }
             }
         }
@@ -244,25 +253,28 @@ List<MyObject>arrayList=new ArrayList<>();
 
     //--------HASHMAP INTEGER LIST------INTEGER GETVALUE
 
-    public HashMap<Integer,List<MyObject>> sortiertKinderNachAlterInListen(){
-        HashMap<Integer,List<MyObject>>  sortierNachAlterInListen=new HashMap<>();
-
-        if(arrayList!=null){
-            for (MyObject k:arrayList) {
-                if(sortierNachAlterInListen.containsKey(k.valueYouAreSearchingFor())){
-                    List<MyObject>gesamt= sortierNachAlterInListen.get(k.valueYouAreSearchingFor());
+    public HashMap<Integer, List<MyObject>> sortiertKinderNachAlterInListen() {
+        HashMap<Integer, List<MyObject>> sortierNachAlterInListen = new HashMap<>();
+//Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
+        if (arrayList != null) {
+            for (MyObject k : arrayList) {
+                if (sortierNachAlterInListen.containsKey(k.valueYouAreSearchingFor())) {
+                    List<MyObject> gesamt = sortierNachAlterInListen.get(k.valueYouAreSearchingFor());
+                    //hier wird in die vorhandene liste gespeichert
                     gesamt.add(k);
-                }else{
-                    List<MyObject>gesamt= new ArrayList<>();
+                } else {
+                    //hier wird die Liste für den key deklariert und initialisiert
+                    //und der Hashmap dem entsprechenden Key zugeordnet
+                    List<MyObject> gesamt = new ArrayList<>();
                     gesamt.add(k);
-                    sortierNachAlterInListen.put(k.valueYouAreSearchingFor(),gesamt);
+                    sortierNachAlterInListen.put(k.valueYouAreSearchingFor(), gesamt);
                 }
             }
         }
 
-        Set<Integer> keyset=sortierNachAlterInListen.keySet();
-        for (Integer s:keyset) {
-            System.out.println("Kinder mit "+s+" Jahre: "+sortierNachAlterInListen.get(s));
+        Set<Integer> keyset = sortierNachAlterInListen.keySet();
+        for (Integer s : keyset) {
+            System.out.println("Kinder mit " + s + " Jahre: " + sortierNachAlterInListen.get(s));
         }
         return sortierNachAlterInListen;
     }
@@ -279,8 +291,8 @@ List<MyObject>arrayList=new ArrayList<>();
         entenNachGewicht.put(100,tiny);
         entenNachGewicht.put(200,medium);
         entenNachGewicht.put(200,big);
-
-
+//Ausschluss einer Nullpointerexception, fuer die referenz und den inhalt der Arraylist
+if(enten!=null){
         for (Ente f : enten) {
             if (f.getfullWeight() < 100) {
 
@@ -295,6 +307,7 @@ List<MyObject>arrayList=new ArrayList<>();
                     big.add(f);
                 }
             }
+        }
         }
 
         return entenNachGewicht;

@@ -5,10 +5,10 @@ public class Maybe<T>{
     private T value;
     private String descritpion;
     private int status;
-//STATUS VALUES: 1->everybody can acces
+//STATUS VALUES: 1->everybody can access
     //10->everybody + add partners can access
     //2-> deleted
-    //3->
+
     public Maybe(T value, int status) {
         this.value = value;
         this.status = status;

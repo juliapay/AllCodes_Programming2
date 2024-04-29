@@ -15,6 +15,8 @@ public class Comparable_CheatSheet implements Comparable<Comparable_CheatSheet> 
 
 
     //THIS METHOD MUST BE PRESENT IN THE CLASS/OBJECT YOU WANT TO COMPARE!!!!!
+
+    //----
     @Override
     public int compareTo(Comparable_CheatSheet o) {
         int result = this.oKey2.compareTo(o.oKey2); // first criteria
@@ -25,16 +27,19 @@ public class Comparable_CheatSheet implements Comparable<Comparable_CheatSheet> 
     }
 
 
-    /*------- MAYBE A BETTER METHOD----------------------------------------------
-        public int compareTo(MyObject o) {
-        if (this.age < o.age) {
-            return -1;
-        }
-        if (this.age > o.age) {
-            return 1;
-        }
+    /*------IN DER BASISKLASSE-------------------------------------------
+
+    public abstract class Ente implements Comparable<Ente>{
+
+   // ----INTEGER WERTE
+
+    public int compareTo(Ente o) {
+        //hier die compare to methode
+        return Integer.compare(this.getFullWeight(),o.getFullWeight());
+    }
 
         //if MyObjects  have same age, sort by another value
+
         if (this.anotherValue < o.anotherValue) {
             return -1;
         }
