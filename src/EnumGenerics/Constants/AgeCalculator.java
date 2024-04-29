@@ -1,4 +1,4 @@
-package ArithmeticExcersises.Constants;
+package EnumGenerics.Constants;
 
 public class AgeCalculator {
 

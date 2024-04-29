@@ -1,4 +1,4 @@
-package Generics;
+package EnumGenerics.Generics;
 
 public class Maybe<T>{
 

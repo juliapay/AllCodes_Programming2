@@ -1,4 +1,4 @@
-package HashMaps;
+package Vererbung.Beispiele.HashMaps;
 
 import Vererbung.Beispiele.RabbitHole.ChristmasRabbit;
 import Vererbung.Beispiele.RabbitHole.EasterRabbit;

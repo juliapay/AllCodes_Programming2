@@ -1,4 +1,4 @@
-package ArithmeticExcersises.Enums;
+package EnumGenerics.Enums;
 
 import java.time.DayOfWeek;
 

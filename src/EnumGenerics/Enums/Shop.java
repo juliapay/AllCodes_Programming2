@@ -1,4 +1,4 @@
-package ArithmeticExcersises.Enums;
+package EnumGenerics.Enums;
 //Shop wir dnur für Namen und opening hours verwendet
 public class Shop {
     private final String name;

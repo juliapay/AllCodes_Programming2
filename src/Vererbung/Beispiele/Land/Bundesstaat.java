@@ -1,8 +1,5 @@
 package Vererbung.Beispiele.Land;
 
-import Vererbung.Beispiele.Animals.Animal;
-import Vererbung.Beispiele.MitarbeiterInnen.Employee;
-
 import java.util.ArrayList;
 import java.util.List;
 

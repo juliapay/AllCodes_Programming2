@@ -1,4 +1,4 @@
-package Generics;
+package EnumGenerics.Generics;
 
 import Vererbung.Beispiele.Person.Person;
 import Vererbung.Beispiele.RabbitHole.EasterRabbit;

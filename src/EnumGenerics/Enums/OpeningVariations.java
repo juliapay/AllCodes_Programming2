@@ -1,4 +1,4 @@
-package ArithmeticExcersises.Enums;
+package EnumGenerics.Enums;
 
 public enum OpeningVariations {
     MONTOFRI,TUETOFRI
