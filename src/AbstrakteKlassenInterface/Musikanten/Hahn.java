@@ -3,8 +3,8 @@ package AbstrakteKlassenInterface.Musikanten;
 public class Hahn extends Musikant {
     protected int flugWeite;
 
-    public Hahn(int aB, Instrument i, int flugWeite) {
-        super(aB, i);
+    public Hahn(int anzahlBeine, Instrument instrument, int flugWeite) {
+        super(anzahlBeine, instrument);
         this.flugWeite = flugWeite;
     }
 
@@ -14,17 +14,18 @@ public class Hahn extends Musikant {
 
     @Override
     public String toString() {
-        return "Hahn " + flugWeite + ": " + super.toString();
+        return " " + getClass().getSimpleName()+" " + getFlugWeite() + ": " + super.toString();
     }
 
     @Override
     public int verscheucheRaeuber() {
         if (flugWeite < 2) {
             return (int) Math.floor(instrument.getLautstaerke());
-        }if (flugWeite>=2||flugWeite<=6){
-            return (int) Math.floor(8-flugWeite);
+        } else if (flugWeite < 6) {
+            return (int) Math.floor(8 - flugWeite);
+        } else {
+            return 1;
         }
-        return 1;
     }
 
     @Override

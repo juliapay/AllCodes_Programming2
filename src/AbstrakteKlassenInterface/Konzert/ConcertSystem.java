@@ -1,10 +1,7 @@
 package AbstrakteKlassenInterface.Konzert;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class ConcertSystem {
 
@@ -70,7 +67,34 @@ public class ConcertSystem {
                 }
             }
         }
+        Set<Integer> keyset= donations.keySet();
+        for (Integer s:keyset) {
+            System.out.println("durch die Kategorie "+s+" wurden "+donations.get(s)+" gespendet.");
+        }
         return donations;
+    }
+    public  HashMap<Integer,Double> dontionKategory(){
+        HashMap<Integer,Double> donationsPerCategory=new HashMap<>();
+
+        if (besucher!=null){
+            for (NFCTicket t:besucher) {
+                double sum=(double)(4-t.getCategory())/10;
+
+                if(donationsPerCategory.containsKey(t.getCategory())){
+                    double currentDonation = donationsPerCategory.get(t.getCategory());
+                    donationsPerCategory.put(t.getCategory(),currentDonation+(t.getProfit()*sum));
+                }else {
+                    donationsPerCategory.put(t.getCategory(),(t.getProfit()*sum));
+                }
+            }
+        }
+        Set<Integer> keyset= donationsPerCategory.keySet();
+        for (Integer s:keyset) {
+            System.out.println("durch die Kategorie "+s+" wurden "+donationsPerCategory.get(s)+" gespendet.");
+        }
+
+
+        return donationsPerCategory;
     }
 
     public void sortPrintForAccounting() {

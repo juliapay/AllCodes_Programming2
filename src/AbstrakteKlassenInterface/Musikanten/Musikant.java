@@ -1,16 +1,17 @@
 package AbstrakteKlassenInterface.Musikanten;
 
 public abstract class Musikant {
-    protected int anzahlbeine;
+    protected int anzahlBeine;
     protected Instrument instrument;
 
-    public Musikant(int anzahlbeine, Instrument instrument) {
-        this.anzahlbeine = anzahlbeine;
+    public Musikant(int anzahlBeine, Instrument instrument) {
+        this.anzahlBeine = anzahlBeine;
         this.instrument = instrument;
     }
-
-    public int getAnzahlbeine() {
-        return anzahlbeine;
+    public  abstract int verscheucheRaeuber();
+    public abstract double spieleMusik();
+    public int getAnzahlBeine() {
+        return anzahlBeine;
     }
 
     public Instrument getInstrument() {
@@ -19,9 +20,7 @@ public abstract class Musikant {
 
     @Override
     public String toString() {
-        return "verscheucht:"+verscheucheRaeuber()+
-                ", Musiziert:"+spieleMusik();
+        return "verscheucht: "+verscheucheRaeuber()+
+                ", Musiziert: "+spieleMusik();
     }
-    public abstract int verscheucheRaeuber();
-    public abstract double spieleMusik();
 }

@@ -1,6 +1,8 @@
 package A_aCheatSheet;
 
 import AbstrakteKlassenInterface.Enten.Ente;
+import AbstrakteKlassenInterface.Kintergarten.Kind;
+import AbstrakteKlassenInterface.Konzert.NFCTicket;
 
 import java.util.*;
 
@@ -119,7 +121,7 @@ List<MyObject>arrayList=new ArrayList<>();
         }
     }
 
-    // CREATING A HASHMAP FROM AN ARRAYLIST WITH PARTICULAR REQUIREMENT
+    // -----HASHMAP STRING DOUBLE  STRING GETVALUE   DOUBE SUMME ALLER VALUES
     HashMap<String, Double> getSumPriceEventsByOrt(ArrayList<MyObject> arrayList) { //Get the sum cost of all items with the same name
         HashMap<String, Double> newHashmapCreated = new HashMap<>(); //The hashmap should contain "name" + totalSum
         String name;
@@ -139,7 +141,7 @@ List<MyObject>arrayList=new ArrayList<>();
         }
         return newHashmapCreated;
     }
-
+// ---------HASHMAP INTEGER INTEGER -----VALUE IST DIE ANZAHL ALLER VALUES!-------
     public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl(ArrayList<MyObject> arrayList) {
         HashMap<Integer, Integer> beineAnzahl = new HashMap<>();
         if (arrayList != null) {
@@ -157,6 +159,35 @@ List<MyObject>arrayList=new ArrayList<>();
         }
         return beineAnzahl;
     }
+    //-------------HASHMAP INTEGER DOUBLE    VALUE = SUMME DER ADDIERTEN VALUES MIT PROZENTRECHNUNG INKLUDIERT!
+
+  /*  public  HashMap<Integer,Double> dontionKategory(){
+        HashMap<Integer,Double> donationsPerCategory=new HashMap<>();
+
+        if (besucher!=null){
+            for (NFCTicket t:besucher) {
+            //hier casting erforderlich!!! da sonst 0!!!
+                double sum=(double)(4-t.getCategory())/10;
+
+                if(donationsPerCategory.containsKey(t.getCategory())){
+                    double currentDonation = donationsPerCategory.get(t.getCategory());
+                    donationsPerCategory.put(t.getCategory(),currentDonation+(t.getProfit()*sum));
+                }else {
+                    donationsPerCategory.put(t.getCategory(),(t.getProfit()*sum));
+                }
+            }
+        }
+        Set<Integer> keyset= donationsPerCategory.keySet();
+        for (Integer s:keyset) {
+            System.out.println("durch die Kategorie "+s+" wurden "+donationsPerCategory.get(s)+" gespendet.");
+        }
+
+
+        return donationsPerCategory;
+    }
+
+   */
+    //---------HASHMAP INTEGER DOUBLE  WIE OBEN NUR HARDGECODET!
 
     public HashMap<String, Double> getAreaBySizeCategories() {
         HashMap<String, Double> sizeByCategories = new HashMap<>();
@@ -183,28 +214,59 @@ List<MyObject>arrayList=new ArrayList<>();
 
         return sizeByCategories;
     }
-    public HashMap<Integer, ArrayList<MyObject>> getGetraenkeaufgeteiltNachZutaten() {
-        HashMap<Integer, ArrayList<MyObject>> getraenkListe = new HashMap<>();
-        if (arrayList != null) {
-            for (int i = 0; i < arrayList.size(); i++) {
-                MyObject g = arrayList.get(i);
-                if (getraenkListe.containsKey(g.valueYouAreSearchingFor())) {
-                    ArrayList<MyObject> gesamt = getraenkListe.get(g.valueYouAreSearchingFor());
-                    gesamt.add(g); // Add directly to the retrieved ArrayList
-                } else {
-                    ArrayList<MyObject> gesamt = new ArrayList<>();
+
+    //----HASHMAP INTEGER ARRAYLIST ---
+
+    public HashMap<Integer, ArrayList<MyObject>> getGetraenkeAufgeteiltNachZutaten() {
+        HashMap<Integer, ArrayList<MyObject>> getraenkeListesortiertNachAnzahlDerZutaten= new HashMap<>();
+        if(arrayList!=null){
+            for (MyObject g:arrayList) {
+                if (getraenkeListesortiertNachAnzahlDerZutaten.containsKey(g.valueYouAreSearchingFor())) {
+                    //hier wird in die vorhandene liste gespeichert
+                    ArrayList<MyObject>gesamt=getraenkeListesortiertNachAnzahlDerZutaten.get(g.valueYouAreSearchingFor());
                     gesamt.add(g);
-                    getraenkListe.put(g.valueYouAreSearchingFor(), gesamt);
+                }else{
+                    //hier wird die Liste für den key deklariert und initialisiert
+                    ArrayList<MyObject>gesamt=new ArrayList<>();
+                    gesamt.add(g);
+                    //und der Hashmap dem entsprechenden Key zugeordnet
+                    getraenkeListesortiertNachAnzahlDerZutaten.put(g.valueYouAreSearchingFor(),gesamt);
                 }
             }
         }
-        Set<Integer> keyset = getraenkListe.keySet();
+        Set<Integer> keyset = getraenkeListesortiertNachAnzahlDerZutaten.keySet();
         for (Integer s : keyset) {
-            System.out.println(s + " Zutaten haben diese Getränke " + getraenkListe.get(s));
+            System.out.println(s + " Zutaten haben diese Getränke: " + getraenkeListesortiertNachAnzahlDerZutaten.get(s));
         }
 
-        return getraenkListe;
+        return getraenkeListesortiertNachAnzahlDerZutaten;
     }
+
+    //--------HASHMAP INTEGER LIST------INTEGER GETVALUE
+
+    public HashMap<Integer,List<MyObject>> sortiertKinderNachAlterInListen(){
+        HashMap<Integer,List<MyObject>>  sortierNachAlterInListen=new HashMap<>();
+
+        if(arrayList!=null){
+            for (MyObject k:arrayList) {
+                if(sortierNachAlterInListen.containsKey(k.valueYouAreSearchingFor())){
+                    List<MyObject>gesamt= sortierNachAlterInListen.get(k.valueYouAreSearchingFor());
+                    gesamt.add(k);
+                }else{
+                    List<MyObject>gesamt= new ArrayList<>();
+                    gesamt.add(k);
+                    sortierNachAlterInListen.put(k.valueYouAreSearchingFor(),gesamt);
+                }
+            }
+        }
+
+        Set<Integer> keyset=sortierNachAlterInListen.keySet();
+        for (Integer s:keyset) {
+            System.out.println("Kinder mit "+s+" Jahre: "+sortierNachAlterInListen.get(s));
+        }
+        return sortierNachAlterInListen;
+    }
+    //----------HASHMAP INTEGER LIST ----INTEGER HARCODE
  /*
         public Map<Integer, List<Ente>> getGruppierteEnten() {
 
@@ -212,7 +274,7 @@ List<MyObject>arrayList=new ArrayList<>();
         List<Ente> tiny = new ArrayList<>();
         List<Ente> medium = new ArrayList<>();
         List<Ente> big = new ArrayList<>();
-//        hier wird nur eine referenz auf die liste inder hashmap ertstellt
+//        hier wird nur eine referenze auf die liste inder hashmap ertstellt
 //        deswegen kann das hashmap.put auch vor der befüllung passieren
         entenNachGewicht.put(100,tiny);
         entenNachGewicht.put(200,medium);

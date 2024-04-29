@@ -3,9 +3,7 @@ package AbstrakteKlassenInterface.Kintergarten;
 import A_aCheatSheet.Comparator_CheatSheet;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Kindergartenklasse {
     private String klasse;
@@ -39,6 +37,28 @@ public class Kindergartenklasse {
         }
 
     }
+    public HashMap<Integer,List<Kind>> sortiertKinderNachAlterInListen(){
+        HashMap<Integer,List<Kind>>  sortierNachAlterInListen=new HashMap<>();
+
+        if(kinder!=null){
+            for (Kind k:kinder) {
+                if(sortierNachAlterInListen.containsKey(k.getAge())){
+                    List<Kind>gesamt= sortierNachAlterInListen.get(k.getAge());
+                   gesamt.add(k);
+                }else{
+                    ArrayList<Kind>gesamt= new ArrayList<>();
+                    gesamt.add(k);
+                    sortierNachAlterInListen.put(k.getAge(),gesamt);
+                }
+            }
+        }
+
+Set<Integer> keyset=sortierNachAlterInListen.keySet();
+        for (Integer s:keyset) {
+            System.out.println("Kinder mit "+s+" Jahre: "+sortierNachAlterInListen.get(s));
+        }
+        return sortierNachAlterInListen;
+    }
 
     public String getKlasse() {
         return klasse;
@@ -48,10 +68,5 @@ public class Kindergartenklasse {
         return kinder;
     }
 
-    @Override
-    public String toString() {
-        return "Kindergartenklasse{" +
-                "klasse='" + klasse + '\'' +
-                ", kinder=" + kinder;
-    }
+
 }

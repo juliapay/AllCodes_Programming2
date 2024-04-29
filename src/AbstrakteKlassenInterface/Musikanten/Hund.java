@@ -2,9 +2,10 @@ package AbstrakteKlassenInterface.Musikanten;
 
 public class Hund extends Musikant{
 	protected double bellLautstaerke;
-	public Hund(int aB, Instrument i , double bellLautstaerke) {
-	super(aB,i);
-	this.bellLautstaerke=bellLautstaerke;
+
+	public Hund(int anzahlBeine, Instrument instrument, double bellLautstaerke) {
+		super(anzahlBeine, instrument);
+		this.bellLautstaerke = bellLautstaerke;
 	}
 
 	public double getBellLautstaerke() {
@@ -13,21 +14,18 @@ public class Hund extends Musikant{
 
 	@Override
 	public String toString() {
-		return "Hund "+bellLautstaerke+": "+ super.toString();
+		return " " + getClass().getSimpleName()+" " + getBellLautstaerke() + ": " + super.toString();
 	}
 
 	@Override
 	public int verscheucheRaeuber() {
-		if(instrument.getLautstaerke()>bellLautstaerke) {
-			return (int) Math.floor(instrument.getLautstaerke());
-		}else{
+		if (bellLautstaerke > instrument.getLautstaerke()) {
 			return (int) Math.floor(bellLautstaerke);
 		}
+		return (int) Math.floor(instrument.getLautstaerke());
 	}
-
 	@Override
 	public double spieleMusik() {
-
-		return Math.abs((bellLautstaerke-instrument.getLautstaerke())/2);
+		return (bellLautstaerke+instrument.getLautstaerke())/2;
 	}
 }

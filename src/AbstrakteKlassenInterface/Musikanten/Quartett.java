@@ -3,80 +3,82 @@ package AbstrakteKlassenInterface.Musikanten;
 import java.util.*;
 
 public class Quartett {
-    private List<Musikant> quartett;
+    protected List<Musikant> quartett;
 
     public Quartett() {
         this.quartett = new ArrayList<>();
     }
-    public void add(Musikant m) {
-        if (!quartett.contains(m)) {
+
+    public void addMusikant(Musikant m) {
+        if (quartett != null) {
             quartett.add(m);
         }
     }
+
     public boolean istQuartett() {
         if (quartett.size() == 4) {
             return true;
         }
         return false;
     }
-    public int gemeinsamRaeuberVerscheucht() {
-        int sum = 0;
-      /*  for (Musikant m:quartett) {
-            sum+=m.verscheucheRaeuber();
-        }
-        return sum;*/
-        Iterator<Musikant> iterator = quartett.iterator();
 
-        while (iterator.hasNext()) {
-            Musikant m = iterator.next();
-            sum += m.verscheucheRaeuber();
+    public int gemeinsameRaeuberVerscheucht() {
+        int sum = 0;
+        if (quartett != null) {
+            for (Musikant m : quartett) {
+                sum += m.verscheucheRaeuber();
+            }
         }
         return sum;
     }
 
     public double durchschnittlicheLautstaerke() {
         int sum = 0;
-        int count = 0;
-        for (Musikant m : quartett) {
-            sum += m.spieleMusik();
-            count++;
+        if (quartett != null) {
+            for (Musikant m : quartett) {
+                sum += m.spieleMusik();
+            }
         }
-        return sum / count;
+        return sum / quartett.size();
     }
 
     public ArrayList<Musikant> getMusikantenInLautstaerkeBereich(double von, double bis) {
-        ArrayList<Musikant> musikants = new ArrayList<>();
-        for (Musikant m : quartett) {
-            if (m.spieleMusik() > von && m.spieleMusik() < bis) {
-                musikants.add(m);
+        ArrayList<Musikant> lautstaerkeBereich = new ArrayList<>();
+
+        if (quartett != null) {
+            for (Musikant m : quartett) {
+                if (m.spieleMusik() > von && m.spieleMusik() < bis) {
+                    lautstaerkeBereich.add(m);
+                }
             }
         }
-        return musikants;
+        return lautstaerkeBereich;
     }
-public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl() {
-    HashMap<Integer, Integer> musikantenBeine = new HashMap<>();
-    for (Musikant m : quartett) {
-        int beine= m.getAnzahlbeine();
-        if(musikantenBeine.containsKey(beine)){
-            musikantenBeine.put(beine,musikantenBeine.get(beine)+1);
-        }else{
-            musikantenBeine.put(beine,1);
+
+    public HashMap<Integer, Integer> getAnzahlMusikantenMitBeinAnzahl() {
+        HashMap<Integer, Integer> anzahlDerMusikantenMitBeinAnzahl = new HashMap<>();
+
+        if (quartett != null) {
+            for (Musikant m : quartett) {
+                if (anzahlDerMusikantenMitBeinAnzahl.containsKey(m.anzahlBeine)){
+                    anzahlDerMusikantenMitBeinAnzahl.put(m.anzahlBeine,anzahlDerMusikantenMitBeinAnzahl.get(m.anzahlBeine)+1);
+                }else{
+                    anzahlDerMusikantenMitBeinAnzahl.put(m.getAnzahlBeine(),1);
+                }
+            }
         }
+        Set<Integer> keyset= anzahlDerMusikantenMitBeinAnzahl.keySet();
+        for (Integer s:keyset){
+            System.out.println(anzahlDerMusikantenMitBeinAnzahl.get(s)+" Tier/e hat/haben "+s+" Bein/e");
+        }
+        return anzahlDerMusikantenMitBeinAnzahl;
     }
-    //       Set<Integer> keyset = beineAnzahl.keySet();
-    //       for (Integer s : keyset) {
-    //           System.out.println(beineAnzahl.get(s) + " Tiere haben " + s + " Beine");
-    //      }
-    return musikantenBeine;
-}
 
-
-    public void printLautStaerkeAbsteigend() {
-        LautstaerkeComparator lautstaerkeComparator = new LautstaerkeComparator();
-        Collections.sort(quartett, lautstaerkeComparator);
-        System.out.println("Musikanten absteigen nach ihrer Lautstärke sortiert");
-        for (Musikant g : quartett) {
-            System.out.println(g);
+    public void printLautstaerkeAbsteigend() {
+        LautstaerkenComparator lautstaerkenComparator = new LautstaerkenComparator();
+        Collections.sort(quartett, lautstaerkenComparator);
+        for (Musikant m : quartett) {
+            System.out.println(m.toString());
         }
     }
 }

@@ -22,6 +22,8 @@ public class Main {
         System.out.println("Profit der Kategorie 1 beträgt: "+concert.profitPerCategory(1));
 
         concert.sortPrintForAccounting();
+        System.out.println("---------------------------");
+        concert.dontionKategory();
 
 
     }

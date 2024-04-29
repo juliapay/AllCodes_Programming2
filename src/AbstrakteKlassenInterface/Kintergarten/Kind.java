@@ -38,8 +38,6 @@ public class Kind {
     @Override
     public String toString() {
         return
-                "vname: " + vname + '\'' +
-                ", zname: " + zname + '\'' +
-                ", age: " + age;
+                 vname +" "+ zname +" " + age +" Jahre alt";
     }
 }

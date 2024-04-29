@@ -3,10 +3,11 @@ package AbstrakteKlassenInterface.Musikanten;
 public class Esel extends Musikant {
     protected double trittkraft;
 
-    public Esel(int aB, Instrument i, double trittkraft) {
-        super(aB, i);
-        this.trittkraft=trittkraft;
+    public Esel(int anzahlBeine, Instrument instrument, double trittkraft) {
+        super(anzahlBeine, instrument);
+        this.trittkraft = trittkraft;
     }
+
 
     public double getTrittkraft() {
         return trittkraft;
@@ -14,16 +15,20 @@ public class Esel extends Musikant {
 
     @Override
     public String toString() {
-        return "Esel "+trittkraft+": "+super.toString();
+
+        return getClass().getSimpleName()+" "+ getTrittkraft()+": "+super.toString();
     }
 
     @Override
     public int verscheucheRaeuber() {
-        return (int)Math.floor(super.anzahlbeine*trittkraft);
+
+        return (int) Math.floor(trittkraft*super.anzahlBeine);
     }
 
     @Override
     public double spieleMusik() {
+
+
         return instrument.getLautstaerke();
     }
 }

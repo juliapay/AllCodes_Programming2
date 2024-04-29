@@ -3,8 +3,8 @@ package AbstrakteKlassenInterface.Musikanten;
 public class Katze extends Musikant {
     protected double kratzKraft;
 
-    public Katze(int aB, Instrument i, double kratzKraft) {
-        super(aB, i);
+    public Katze(int anzahlBeine, Instrument instrument, double kratzKraft) {
+        super(anzahlBeine, instrument);
         this.kratzKraft = kratzKraft;
     }
 
@@ -14,15 +14,15 @@ public class Katze extends Musikant {
 
     @Override
     public String toString() {
-        return "Katze "+kratzKraft+": "+ super.toString();
+        return " "+getClass().getSimpleName()+" "+ getKratzKraft()+": "+super.toString();
     }
 
     @Override
     public int verscheucheRaeuber() {
-        if(super.anzahlbeine==3){
-            kratzKraft=kratzKraft/2;
-        } else if (super.anzahlbeine<=2) {
-            kratzKraft=1;
+        if (anzahlBeine==3){
+            return (int) Math.floor(kratzKraft/2);
+        } else if (anzahlBeine<=2) {
+            return 1;
         }
         return (int) Math.floor(kratzKraft);
     }
